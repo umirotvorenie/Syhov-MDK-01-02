@@ -14,7 +14,8 @@ namespace Syhov_MDK_01_02
 
         private double ответ(string equation, double lowerBound, double upperBound)
         {
-            return 42.0;
+            double result = lowerBound + upperBound;
+            return result;
         }
 
         private void button1_Click(object sender, EventArgs e)

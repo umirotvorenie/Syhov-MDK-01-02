@@ -145,7 +145,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(644, 384);
+            ClientSize = new Size(483, 384);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -158,7 +158,7 @@
             Controls.Add(button2);
             Controls.Add(button1);
             Name = "Form1";
-            Text = "Form1";
+            Text = "Вычисление объема тела вращения с помощью определенного интеграла ";
             ResumeLayout(false);
             PerformLayout();
         }
