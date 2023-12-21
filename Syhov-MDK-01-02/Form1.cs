@@ -36,7 +36,6 @@ namespace Syhov_MDK_01_02
 
             // ѕолное решение
             string детали–асчета = $"”равнение: {уравнение}, √раницы интеграции: {нижн€€√раница} - {верхн€€√раница}";
-            string шаги»нтеграции = "«десь могут быть шаги вычислений интеграла.";
             label4.Text = $"–езультат: {объем}";
         }
 
@@ -57,15 +56,13 @@ namespace Syhov_MDK_01_02
 
             // ѕолное решение
             string детали–асчета = $"”равнение: {уравнение}, √раницы интеграции: {нижн€€√раница} - {верхн€€√раница}";
-            string шаги»нтеграции = "«десь могут быть шаги вычислений интеграла.";
             Word.Application wordApp = new Word.Application();
             wordApp.Visible = true;
             Word.Document doc = wordApp.Documents.Add();
             Word.Range range = doc.Range();
             range.Text = "–асчет объема тела вращени€" + Environment.NewLine +
                          "ќбъем: " + объем + Environment.NewLine +
-                         "ƒетали расчета: " + детали–асчета + Environment.NewLine +
-                         "Ўаги интеграции: " + шаги»нтеграции;
+                         "ƒетали расчета: " + детали–асчета + Environment.NewLine;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -84,7 +81,6 @@ namespace Syhov_MDK_01_02
 
             // ѕолное решение
             string детали–асчета = $"”равнение: {уравнение}, √раницы интеграции: {нижн€€√раница} - {верхн€€√раница}";
-            string шаги»нтеграции = "«десь могут быть шаги вычислений интеграла.";
             Excel.Application excelApp = new Excel.Application();
             excelApp.Visible = true;
             Excel.Workbook workbook = excelApp.Workbooks.Add();
@@ -94,8 +90,6 @@ namespace Syhov_MDK_01_02
             sheet.Cells[2, 2] = объем;
             sheet.Cells[4, 1] = "ƒетали расчета";
             sheet.Cells[5, 1] = детали–асчета;
-            sheet.Cells[6, 1] = "Ўаги интеграции";
-            sheet.Cells[7, 1] = шаги»нтеграции;
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -114,21 +108,15 @@ namespace Syhov_MDK_01_02
 
             // ѕолное решение
             string детали–асчета = $"”равнение: {уравнение}, √раницы интеграции: {нижн€€√раница} - {верхн€€√раница}";
-            string шаги»нтеграции = "«десь могут быть шаги вычислений интеграла.";
             string путь ‘айлуPdf = "результаты_расчета_объема.pdf";
             using (FileStream fs = new FileStream(путь ‘айлуPdf, FileMode.Create, FileAccess.Write, FileShare.None))
             {
                 iTextSharp.text.Document pdfDoc = new iTextSharp.text.Document();
                 PdfWriter.GetInstance(pdfDoc, fs);
                 pdfDoc.Open();
-
                 // ¬ывод деталей расчета
                 pdfDoc.Add(new Paragraph("Calculation details: " + детали–асчета));
                 pdfDoc.Add(iTextSharp.text.Chunk.NEWLINE);
-
-                // ¬ывод подробных шагов интегрировани€
-                pdfDoc.Add(new Paragraph("Detailed integration steps:"));
-
                 // ¬ывод результирующего объема
                 pdfDoc.Add(new Paragraph("The volume of the body of rotation: " + объем));
 
